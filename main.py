@@ -17,10 +17,10 @@ def getvalue(host):
 def sumhosts():
 	rtn = {"power": {}, "energy": {}}
 	for host in config["hosts"]:
-		j = getvalue(config["hosts"][elem])
+		j = getvalue(config["hosts"][host])
 		print(j)
-		rtn["power"][elem] = float(j["pwr"])
-		rtn["energy"][elem] = float(j["cnt"].replace(",", "."))
+		rtn["power"][host] = float(j["pwr"])
+		rtn["energy"][host] = float(j["cnt"].replace(",", "."))
 	
 	return rtn
 
