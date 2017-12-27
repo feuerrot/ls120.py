@@ -28,8 +28,8 @@ def export():
 	data = sumhosts()
 	out = open(config["output"], "w")
 	for host in config["hosts"]:
-		out.write('power_usage_kilowatthours{{location="colo",host="{}"}} {}'.format(host, data["energy"][host]))
-		out.write('power_current_watt{{location="colo",host="{}"}} {}'.format(host, data["power"][host]))
+		out.write('power_usage_kilowatthours{{location="colo",host="{}"}} {}\n'.format(host, data["energy"][host]))
+		out.write('power_current_watt{{location="colo",host="{}"}} {}\n'.format(host, data["power"][host]))
 	out.close()
 
 export()
