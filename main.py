@@ -15,12 +15,12 @@ def getvalue(host):
 	return g.json()
 
 def sumhosts():
-	rtn = {"power": 0, "energy": 0}
+	rtn = {"power": {}, "energy": {}}
 	for elem in config["hosts"]:
-		j = getvalue(elem)
+		j = getvalue(config["hosts"][elem])
 		print(j)
-		rtn["power"] += float(j["pwr"])
-		rtn["energy"] += float(j["cnt"].replace(",", "."))
+		rtn["power"][elem] = float(j["pwr"])
+		rtn["energy"][elem] = float(j["cnt"].replace(",", "."))
 	
 	return rtn
 
