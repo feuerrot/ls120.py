@@ -16,7 +16,7 @@ def getvalue(host):
 
 def sumhosts():
 	rtn = {"power": {}, "energy": {}}
-	for elem in config["hosts"]:
+	for host in config["hosts"]:
 		j = getvalue(config["hosts"][elem])
 		print(j)
 		rtn["power"][elem] = float(j["pwr"])
@@ -24,4 +24,12 @@ def sumhosts():
 	
 	return rtn
 
-print(sumhosts())
+def export():
+	data = sumhosts()
+	out = file(config["output"], "w")
+	for host in config["hosts"]:
+		out.write('power_usage_kilowatthours{{location="colo",host="{}"}} {}'.format(host, data["energy"][host]))
+		out.write('power_current_watt{{location="colo",host="{}"}} {}'.format(host, data["power"][host]))
+	out.close()
+
+export()

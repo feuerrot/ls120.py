@@ -4,5 +4,6 @@
 		"right": "192.168.0.18"
 	},
 	"url": "http://{}/a?f=j",
-	"summarize": true
+	"summarize": true,
+	"output": "/tmp/powerfile"
 }
