@@ -34,5 +34,5 @@ def export():
 
 try:
 	export()
-except:
-	pass
+except Exception as e:
+	print(e)
