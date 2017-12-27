@@ -5,5 +5,5 @@
 	},
 	"url": "http://{}/a?f=j",
 	"summarize": true,
-	"output": "/tmp/powerfile"
+	"output": "/srv/www/metrics"
 }
