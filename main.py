@@ -32,4 +32,7 @@ def export():
 		out.write('power_current_watt{{location="colo",host="{}"}} {}\n'.format(host, data["power"][host]))
 	out.close()
 
-export()
+try:
+	export()
+except:
+	pass
