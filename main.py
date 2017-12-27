@@ -26,7 +26,7 @@ def sumhosts():
 
 def export():
 	data = sumhosts()
-	out = file(config["output"], "w")
+	out = open(config["output"], "w")
 	for host in config["hosts"]:
 		out.write('power_usage_kilowatthours{{location="colo",host="{}"}} {}'.format(host, data["energy"][host]))
 		out.write('power_current_watt{{location="colo",host="{}"}} {}'.format(host, data["power"][host]))
