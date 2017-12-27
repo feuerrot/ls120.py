@@ -8,7 +8,7 @@ configfile = open("config", "r")
 config = json.load(configfile)
 
 def getvalue(host):
-	g = requests.get(config["url"].format(host))
+	g = requests.get(config["url"].format(host), timeout=1)
 	if g.status_code != 200:
 		raise Exception
 	
