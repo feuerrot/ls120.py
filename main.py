@@ -19,8 +19,8 @@ def sumhosts():
 	for elem in config["hosts"]:
 		j = getvalue(elem)
 		print(j)
-		rtn["power"] += float(j["pwr"])
-		rtn["energy"] += float(j["cnt"])
+		rtn["power"] += float(j["pwr"].replace(",", "."))
+		rtn["energy"] += float(j["cnt"].replace(",", "."))
 	
 	return rtn
 
